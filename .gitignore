@@ -1,0 +1,35 @@
+# Directorios de compilación
+build/
+cmake-build-*/
+out/
+
+# Binarios sueltos en la raíz
+a.out
+main
+hola
+script
+programa
+
+# Objetos y librerías
+*.o
+*.obj
+*.a
+*.so
+*.out
+*.exe
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+
+# clangd / editores
+.cache/
+.vscode/
+.idea/
+*.swp
+*~
+
+# Sistema
+.DS_Store
