@@ -3,7 +3,7 @@
 #include <random>
 #include <CLI/CLI.hpp>
 #include "math.hpp"
-
+#include "str.hpp"
 
 
 // un namespace es un espacio de nombres
@@ -22,6 +22,11 @@ int main(int argc, char* argv[]) {
     random->add_option("--count", randomCount)->capture_default_str();
     
 
+
+    auto* bogo = app.add_subcommand("bogo", "perform a bogosort");
+    std::vector<int> bogoNumbers;
+    bogo->add_option("numbers", bogoNumbers, "numbers to be bogoed")->required();
+    
     app.require_subcommand(1);
 
     CLI11_PARSE(app, argc, argv);
@@ -30,6 +35,11 @@ int main(int argc, char* argv[]) {
         while(randomCount-- > 0) {
             std::cout << util::random(randomMin, randomMax) << '\n';
         }
+    }
+
+    if(*bogo) {
+        util::bogo(bogoNumbers);
+        std::cout << util::stringify(bogoNumbers) << '\n';
     }
     return 0;
 }

@@ -52,4 +52,28 @@ namespace util {
         return dist(gen);
     }
 
+
+    void bogo(std::vector<int>& vec) {
+        while(!isSorted(vec)) {
+            shuffle(vec);
+        }
+    }
+
+    bool isSorted(std::vector<int> vec) {
+        for(std::size_t idx = 0; idx + 1 < vec.size(); idx++) {
+            if(vec.at(idx) > vec.at(idx + 1)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    
+
+    void shuffle(std::vector<int>& vec) {
+        for(std::size_t idx = 0; idx < vec.size(); idx++) {
+            std::swap(vec[idx], vec[random(0, static_cast<int>(vec.size()) - 1)]);
+       }
+    }
+
 }

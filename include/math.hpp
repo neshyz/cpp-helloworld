@@ -1,4 +1,8 @@
+
+
 #pragma once
+
+#include <vector>
 
 namespace util {
     
@@ -10,4 +14,7 @@ namespace util {
     int random(int min, int max);
     double random(double min, double max);
 
+    void bogo(std::vector<int>& vec);
+    bool isSorted(std::vector<int> vec);
+    void shuffle(std::vector<int>& vec);
 }
