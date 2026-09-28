@@ -8,10 +8,15 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 file(GLOB_RECURSE FUENTES CONFIGURE_DEPENDS src/*.cpp)
 
 find_package(spdlog REQUIRED)
+find_package(CLI11 CONFIG REQUIRED)
+
+
 add_executable(programa ${FUENTES})
 target_link_libraries(programa PRIVATE spdlog::spdlog)
+target_link_libraries(programa PRIVATE CLI11::CLI11)
 
 # Le dice al compilador que busque los #include "..." también en include/
 target_include_directories(programa PRIVATE include)
 
 target_compile_options(programa PRIVATE -Wall -Wextra)
+
