@@ -53,7 +53,7 @@ namespace util {
     }
 
 
-    void bogo(std::vector<int>& vec) {
+    void bogosort(std::vector<int>& vec) {
         while(!isSorted(vec)) {
             shuffle(vec);
         }

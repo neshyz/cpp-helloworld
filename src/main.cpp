@@ -23,9 +23,9 @@ int main(int argc, char* argv[]) {
     
 
 
-    auto* bogo = app.add_subcommand("bogo", "perform a bogosort");
+    auto* bogosort = app.add_subcommand("bogosort", "perform a bogosort");
     std::vector<int> bogoNumbers;
-    bogo->add_option("numbers", bogoNumbers, "numbers to be bogoed")->required();
+    bogosort->add_option("numbers", bogoNumbers, "numbers to be bogoed")->required();
     
     app.require_subcommand(1);
 
@@ -37,8 +37,8 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if(*bogo) {
-        util::bogo(bogoNumbers);
+    if(*bogosort) {
+        util::bogosort(bogoNumbers);
         std::cout << util::stringify(bogoNumbers) << '\n';
     }
     return 0;
